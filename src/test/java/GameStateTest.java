@@ -92,7 +92,7 @@ public class GameStateTest {
                 .playerTwoScored()
                 .playerTwoScored();
 
-        assertEquals("Win for player 2", newState.asString("player1", "player2"));
+        assertEquals("Win for player2", newState.asString("player1", "player2"));
     }
 
     @Test
@@ -130,8 +130,6 @@ public class GameStateTest {
 
     @Test
     public void givenInitialState_whenPlayerOneAndTwoScoreEqualTimesAboveThreeToTen_shouldBeDeuce() throws Exception {
-
-
         for (int scores = 0; scores < 7; scores++) {
             GameState state = new EvenGameState(3);
             for (int j = 0; j < scores; j++) {
@@ -142,12 +140,24 @@ public class GameStateTest {
     }
 
     @Test
-    public void givenAdvantageGameState_whenPlayerInAdvantageScores_shouldBeWin() throws Exception {
+    public void givenAdvantageGameState_whenPlayerOneInAdvantageScores_shouldBeWin() throws Exception {
 
-        final AdvantageGameState advantageGameState = new AdvantageGameState();
+        final AdvantageGameState advantageGameState = new AdvantageGameState(Player.PLAYER1);
 
         final GameState result = advantageGameState.playerOneScored();
 
-        assertEquals("Win for player 1", result.asString("player1", "player2"));
+        assertEquals("Win for player1", result.asString("player1", "player2"));
     }
+
+
+    @Test
+    public void givenAdvantageGameState_whenPlayerTwoInAdvantageScores_shouldBeWin() throws Exception {
+
+        final AdvantageGameState advantageGameState = new AdvantageGameState(Player.PLAYER2);
+
+        final GameState result = advantageGameState.playerTwoScored();
+
+        assertEquals("Win for player2", result.asString("player1", "player2"));
+    }
+
 }

@@ -39,7 +39,7 @@ public class UnevenGameState implements GameState {
         int incrementedPointsPlayer2 = pointsPlayer2 + 1;
 
         if(incrementedPointsPlayer2 == 4 && pointsPlayer1 != incrementedPointsPlayer2){
-            return new WinGamestate();
+            return new WinGamestate(Player.PLAYER2);
         }
 
         if(incrementedPointsPlayer2 == this.pointsPlayer1){
