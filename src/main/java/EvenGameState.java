@@ -27,7 +27,7 @@ public class EvenGameState implements GameState {
         int incrementedPointsPlayer2 = points + 1;
 
         if (incrementedPointsPlayer2 == 4) {
-            return new AdvantageGameState(Player.PLAYER2);
+            return new AdvantagePlayer2GameState();
         }
 
         return new UnevenGameState(points, incrementedPointsPlayer2);
