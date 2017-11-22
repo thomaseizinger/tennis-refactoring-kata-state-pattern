@@ -21,11 +21,14 @@ public class UnevenGameState implements GameState {
 
         final int incrementedPointsPlayer1 = pointsPlayer1 + 1;
 
-        if (incrementedPointsPlayer1 == 4) {
+        if (incrementedPointsPlayer1 == 4 && pointsPlayer1 != incrementedPointsPlayer1) {
             return new WinPlayer1GameState();
         }
 
         if (incrementedPointsPlayer1 == pointsPlayer2) {
+            if (incrementedPointsPlayer1 >= 3) {
+                return new DeuceGameState();
+            }
             return new EvenGameState(incrementedPointsPlayer1);
         }
 
@@ -35,13 +38,16 @@ public class UnevenGameState implements GameState {
     @Override
     public GameState playerTwoScored() {
 
-        int incrementedPointsPlayer2 = pointsPlayer2 + 1;
+        final int incrementedPointsPlayer2 = pointsPlayer2 + 1;
 
-        if(incrementedPointsPlayer2 == 4 && pointsPlayer1 != incrementedPointsPlayer2){
+        if (incrementedPointsPlayer2 == 4 && pointsPlayer1 != incrementedPointsPlayer2) {
             return new WinPlayer2GameState();
         }
 
-        if(incrementedPointsPlayer2 == this.pointsPlayer1){
+        if (incrementedPointsPlayer2 == pointsPlayer1) {
+            if (incrementedPointsPlayer2 >= 3) {
+                return new DeuceGameState();
+            }
             return new EvenGameState(incrementedPointsPlayer2);
         }
 

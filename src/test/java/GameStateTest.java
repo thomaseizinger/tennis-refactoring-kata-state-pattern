@@ -131,7 +131,7 @@ public class GameStateTest {
     @Test
     public void givenInitialState_whenPlayerOneAndTwoScoreEqualTimesAboveThreeToTen_shouldBeDeuce() throws Exception {
         for (int scores = 0; scores < 7; scores++) {
-            GameState state = new EvenGameState(3);
+            GameState state = new DeuceGameState();
             for (int j = 0; j < scores; j++) {
                 state = state.playerOneScored().playerTwoScored();
             }

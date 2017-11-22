@@ -11,11 +11,6 @@ public class EvenGameState implements GameState {
 
     @Override
     public String asString(String namePlayer1, final String namePlayer2) {
-
-        if (points >= 3) {
-            return "Deuce";
-        }
-
         return scoreNameMapper.mapScore(points) + "-All";
     }
 
@@ -34,7 +29,7 @@ public class EvenGameState implements GameState {
     @Override
     public GameState playerTwoScored() {
 
-        int incrementedPointsPlayer2 = points + 1;
+        final int incrementedPointsPlayer2 = points + 1;
 
         if (incrementedPointsPlayer2 == 4) {
             return new AdvantagePlayer2GameState();

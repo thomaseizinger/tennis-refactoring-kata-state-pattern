@@ -7,7 +7,7 @@ public class AdvantagePlayer2GameState implements GameState {
 
     @Override
     public GameState playerOneScored() {
-        return new  EvenGameState(3);
+        return new DeuceGameState();
     }
 
     @Override
