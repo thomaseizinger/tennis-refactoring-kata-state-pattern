@@ -3,26 +3,17 @@ public class UnevenGameState implements GameState {
     private final int pointsPlayer1;
     private final int pointsPlayer2;
 
+    private final RunningScoreNameMapper scoreNameMapper;
+
     public UnevenGameState(int pointsPlayer1, int pointsPlayer2) {
         this.pointsPlayer1 = pointsPlayer1;
         this.pointsPlayer2 = pointsPlayer2;
+        scoreNameMapper = new RunningScoreNameMapper();
     }
 
     @Override
     public String asString(String namePlayer1, final String name) {
-        return String.format("%s-%s", getScoreName(pointsPlayer1), getScoreName(pointsPlayer2));
-    }
-
-    private String getScoreName(int score) {
-
-        switch (score) {
-            case 0: return "Love";
-            case 1: return "Fifteen";
-            case 2: return "Thirty";
-            case 3: return "Forty";
-        }
-
-        throw new IllegalArgumentException();
+        return String.format("%s-%s", scoreNameMapper.mapScore(pointsPlayer1), scoreNameMapper.mapScore(pointsPlayer2));
     }
 
     @Override

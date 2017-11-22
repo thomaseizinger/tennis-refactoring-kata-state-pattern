@@ -2,8 +2,11 @@ public class EvenGameState implements GameState {
 
     private final int points;
 
+    private final RunningScoreNameMapper scoreNameMapper;
+
     public EvenGameState(int points) {
         this.points = points;
+        scoreNameMapper = new RunningScoreNameMapper();
     }
 
     @Override
@@ -13,11 +16,7 @@ public class EvenGameState implements GameState {
             return "Deuce";
         }
 
-        if (points == 2) {
-            return "Thirty-All";
-        }
-
-        return "Fifteen-All";
+        return scoreNameMapper.mapScore(points) + "-All";
     }
 
     @Override
