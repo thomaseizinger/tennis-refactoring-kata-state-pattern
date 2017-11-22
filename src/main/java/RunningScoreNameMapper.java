@@ -7,8 +7,7 @@ public class RunningScoreNameMapper {
             case 2: return "Thirty";
             case 3: return "Forty";
         }
-
-        throw new IllegalArgumentException();
+        throw new IllegalArgumentException("<Score: " + score + ">");
     }
 
 }
