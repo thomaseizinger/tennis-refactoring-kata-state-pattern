@@ -205,4 +205,17 @@ public class GameStateTest {
         assertEquals("Deuce", newState.asString("player1", "player2"));
     }
 
+    @Test
+    public void givenInitialState_PlayerOneScoresFourTimes_shouldBeWinForPlayerOne() throws Exception {
+
+        GameState state = new InitialState();
+
+        final GameState newState = state
+                .playerOneScored()
+                .playerOneScored()
+                .playerOneScored()
+                .playerOneScored();
+
+        assertEquals("Win for player1", newState.asString("player1", "player2"));
+    }
 }
