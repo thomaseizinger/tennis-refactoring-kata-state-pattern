@@ -22,6 +22,6 @@ public class AdvantageGameState implements GameState {
 
     @Override
     public GameState playerTwoScored() {
-        return null;
+        return new WinGamestate(Player.PLAYER2);
     }
 }
