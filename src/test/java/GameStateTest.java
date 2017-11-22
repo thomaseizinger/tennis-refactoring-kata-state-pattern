@@ -229,4 +229,17 @@ public class GameStateTest {
 
         assertEquals("Deuce", newState.asString("player1", "player2"));
     }
+
+    @Test
+    public void givenEventGameStateThreePoints_whenPlayer1Scores_shouldBeAdvantagePlayer1() throws Exception {
+
+        GameState state = new EvenGameState(3);
+
+        final GameState newState = state
+                .playerOneScored();
+
+        assertEquals( "Advantage player1", newState.asString("player1", "player2"));
+    }
+
+
 }
