@@ -172,7 +172,7 @@ public class GameStateTest {
     }
 
     @Test
-    public void givenInitialState_BothPlayersScoredThreeTimes_shouldBeFifteenAll() throws Exception {
+    public void givenInitialState_BothPlayersScoredTwoTimes_shouldBeThirtyAll() throws Exception {
 
         GameState state = new InitialState();
 
@@ -180,11 +180,9 @@ public class GameStateTest {
                 .playerOneScored()
                 .playerTwoScored()
                 .playerOneScored()
-                .playerTwoScored()
-                .playerOneScored()
                 .playerTwoScored();
 
-        assertEquals("Fifteen-All", newState.asString("player1", "player2"));
+        assertEquals("Thirty-All", newState.asString("player1", "player2"));
     }
 
 }
