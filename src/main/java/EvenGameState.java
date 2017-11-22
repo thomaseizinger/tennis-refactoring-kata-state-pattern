@@ -21,6 +21,11 @@ public class EvenGameState implements GameState {
 
     @Override
     public GameState playerOneScored() {
+
+        if (points + 1 == 4) {
+            return new AdvantagePlayer1GameState();
+        }
+
         return new UnevenGameState(points + 1, points);
     }
 
