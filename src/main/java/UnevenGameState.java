@@ -18,9 +18,9 @@ public class UnevenGameState implements GameState {
 
     @Override
     public GameState playerOneScored() {
-//        if (pointsPlayer1 + 1 == pointsPlayer2) {
-//            return new EvenGameState(pointsPlayer1 + 1);
-//        }
+        if (pointsPlayer1 + 1 == pointsPlayer2) {
+            return new EvenGameState(pointsPlayer1 + 1);
+        }
         return new UnevenGameState(pointsPlayer1 + 1, pointsPlayer2);
     }
 
