@@ -9,8 +9,12 @@ public class EvenGameState implements GameState {
     @Override
     public String asString(String namePlayer1, final String namePlayer2) {
 
-        if(points >= 3){
+        if (points >= 3) {
             return "Deuce";
+        }
+
+        if (points == 2) {
+            return "Thirty-All";
         }
 
         return "Fifteen-All";
