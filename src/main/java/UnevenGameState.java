@@ -19,15 +19,17 @@ public class UnevenGameState implements GameState {
     @Override
     public GameState playerOneScored() {
 
-        if (pointsPlayer1 + 1 == 4) {
+        final int incrementedPointsPlayer1 = pointsPlayer1 + 1;
+
+        if (incrementedPointsPlayer1 == 4) {
             return new WinPlayer1GameState();
         }
 
-        if (pointsPlayer1 + 1 == pointsPlayer2) {
-            return new EvenGameState(pointsPlayer1 + 1);
+        if (incrementedPointsPlayer1 == pointsPlayer2) {
+            return new EvenGameState(incrementedPointsPlayer1);
         }
 
-        return new UnevenGameState(pointsPlayer1 + 1, pointsPlayer2);
+        return new UnevenGameState(incrementedPointsPlayer1, pointsPlayer2);
     }
 
     @Override
