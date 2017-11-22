@@ -185,4 +185,24 @@ public class GameStateTest {
         assertEquals("Thirty-All", newState.asString("player1", "player2"));
     }
 
+    @Test
+    public void givenInitialState_whenGameIsEvenAfterAdvantage_shouldReportCorrectScore() throws Exception {
+
+        GameState state = new InitialState();
+
+        final GameState newState = state
+                .playerOneScored()
+                .playerTwoScored()
+                .playerOneScored()
+                .playerTwoScored()
+                .playerOneScored()
+                .playerTwoScored()
+                .playerOneScored()
+                .playerTwoScored()
+                .playerTwoScored()
+                .playerOneScored();
+
+        assertEquals("Deuce", newState.asString("player1", "player2"));
+    }
+
 }
