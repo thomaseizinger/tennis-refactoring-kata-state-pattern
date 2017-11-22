@@ -142,7 +142,7 @@ public class GameStateTest {
     @Test
     public void givenAdvantageGameState_whenPlayerOneInAdvantageScores_shouldBeWin() throws Exception {
 
-        final AdvantageGameState advantageGameState = new AdvantageGameState(Player.PLAYER1);
+        final GameState advantageGameState = new AdvantagePlayer1GameState();
 
         final GameState result = advantageGameState.playerOneScored();
 
@@ -153,7 +153,7 @@ public class GameStateTest {
     @Test
     public void givenAdvantageGameState_whenPlayerTwoInAdvantageScores_shouldBeWin() throws Exception {
 
-        final AdvantageGameState advantageGameState = new AdvantageGameState(Player.PLAYER2);
+        final GameState advantageGameState = new AdvantagePlayer2GameState();
 
         final GameState result = advantageGameState.playerTwoScored();
 
