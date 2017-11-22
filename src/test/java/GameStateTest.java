@@ -171,4 +171,20 @@ public class GameStateTest {
         assertEquals("Deuce", result.asString("player1", "player2"));
     }
 
+    @Test
+    public void givenInitialState_BothPlayersScoredThreeTimes_shouldBeFifteenAll() throws Exception {
+
+        GameState state = new InitialState();
+
+        GameState newState = state
+                .playerOneScored()
+                .playerTwoScored()
+                .playerOneScored()
+                .playerTwoScored()
+                .playerOneScored()
+                .playerTwoScored();
+
+        assertEquals("Fifteen-All", newState.asString("player1", "player2"));
+    }
+
 }
